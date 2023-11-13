@@ -141,17 +141,17 @@ Histogram klasicky obsahuje sloupec i pro hodnoty co se v datech nevyskytují.
 ```python
 def get_values_counts(data: list[int]) -> tuple[list[int], list[int]]:
     """
-    Najde všechny unikátní hodnoty z listu data,
-    pro každou unikátní hodnotu spočte počet výskytů.
+    Připraví data pro histogram. Z listu hodnot vytvoří dva listy
+    list values, který bude obsahovat hodnoty
+    list counts, který bude obsahovat počty výskytů hodnot v listu data
 
-    List values musí být vzestupně seřazený. 
-
-    Pro hodnotu na indexu i v poli values musí být v poli counts na indexu i odpovídající hodnota. 
+    Pokud se hodnota v seznamu nevyskytuje, bude mít počet výskytů 0
+    List values by tedy měl obsahovat všechny hodnoty v intervalu <min(data), max(data)> 
 
     Př.:    
-    data = [1, 2, 3, 1, 2, 1, 3]
-    values = [1, 2, 3]
-    counts = [3, 2, 2]
+    data = [1, 2, 3, 1, 2, 1, 3, 5]
+    values = [1, 2, 3, 4, 5]
+    counts = [3, 2, 2, 0, 1]
     return values, counts
     """
     ...
