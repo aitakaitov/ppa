@@ -5,7 +5,7 @@
 ### Inicializace
 Obojí je možné
 
-```
+```python
 my_list = []
 
 my_list = [0, 1, 2, 3]
@@ -14,16 +14,15 @@ my_list = list()
 ```
 
 <code>list()</code> lze použít i pro přetypování kolekce na list, např.
-```
-> my_list = list(range(10))
+```python
+my_list = list(range(10))
 
-> print(my_list) 
-
-> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(my_list) 
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 Iterování přes list pomocí indexu
-```
+```python
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 for i in range(len(my_list)):
@@ -31,7 +30,7 @@ for i in range(len(my_list)):
 ```
 
 Iterování přes prvky listu (for each)
-```
+```python
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 for value in my_list:
@@ -39,50 +38,48 @@ for value in my_list:
 ```
 
 List comprehensions - vložením for cyklu do listu vygenerujeme hodnoty listu 
-```
-> my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```python
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-> my_list_times_two = [value * 2 for value in my_list]
+my_list_times_two = [value * 2 for value in my_list]
 
-> print(my_list_times_two)
-
-> [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+print(my_list_times_two)
+# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
 
 Built-in operace pro listy - <code>min</code>, <code>max</code>
-```
-> my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```python
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-> print(max(my_list))
+print(max(my_list))
+# 9
 
-> 9
-
-> print(min(my_list))
-
-> 0
+print(min(my_list))
+# 0
 ```
 
 ## Funkce
 
 Definice funkce přes hlavičku a tělo, definice typu parametrů a návratových hodnot
-```
+```python
 def func(param1: type, param2: type) -> type:
     ...
 ```
 
 Vrácení více návratových hodnot - tuple
-```
+```python
 def func() -> tuple[str, str]:
     return 'string1', 'string2'
 
 value1, value2 = func() 
-print(value1)   # 'string1'
-print(value2)   # 'string2'
-
+print(value1)   
+# 'string1'
+print(value2)   
+# 'string2'
 ```
 
 Výchozí hodnoty parametrů, předávání pojmenovaných parametrů
-```
+```python
 def randn(mean: float = 0, stdev: float = 1) -> float:
     random_number = ...
     # kód vynegeruje náhodnou hodnotu z normálního rozdělení s předanou st5edn9 hodnotou a směrodatnou odchylkou
@@ -108,7 +105,7 @@ random_number = randn(mean=10, 5)
 ```
 
 Komentáře k funkcím
-```
+```python
 def func(param1: int) -> float:
     """
     Ukázkový komentář
@@ -124,7 +121,7 @@ def func(param1: int) -> float:
 # Příklady
 
 ## Funkce na generování polí
-```
+```python
 # načte z klávesnice pole zadané délky a vrátí jej
 def input_array(n: int) -> list[int]:
     ...
@@ -141,7 +138,7 @@ def generate_random_array(n: int, min: int, max: int) -> list[int]:
 ## Histogram
 Historam zjednodušíme - pokud je počet výskytů 0, tak hodnotu do histogramu nezahrneme. 
 Histogram klasicky obsahuje sloupec i pro hodnoty co se v datech nevyskytují.
-```
+```python
 def get_values_counts(data: list[int]) -> tuple[list[int], list[int]]:
     """
     Najde všechny unikátní hodnoty z listu data,
@@ -244,7 +241,7 @@ Do terminálu zadat
 
 v kódu
 
-```
+```python
 import matplotlib.pyplot as plt
 
 data = generate_random_array(n=100, min=0, max=20)
