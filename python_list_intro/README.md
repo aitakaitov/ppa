@@ -258,3 +258,65 @@ values, counts = get_values_counts(data)
 plt.hist(x=data, bins=len(values))
 plt.show()
 ```
+
+# Něco málo navíc
+
+## <code>list</code> vs <code>tuple</code>
+
+<code>list</code> lze modifikovat, <code>tuple</code> ne. <code>tuple</code> je n2kdy rychlej39
+
+```python
+t = tuple(1, 2, 3)
+
+# ekvivalentní
+t = (1, 2, 3)
+
+# TypeError: 'tuple' object does not support item assignment
+t[0] = 10
+```
+
+## <code>dictionary</code>
+
+<code>dictionary</code> je slovník s páry <code>key, value</code>.
+
+```python
+d = dict()
+
+# ekvivalentní
+d = {}
+
+# s počátečními hodnotami
+d = {'key1': 'value1', ...}
+
+# přiřazení
+d['some_key'] = 'some_value'
+
+# kontrola jestli je klíč ve slovníku
+if 'some_key' in d.keys():
+    ...
+
+# získání klíčů
+keys = d.keys()
+
+# získání hodnot
+values = d.values()
+
+# získání dvojic klíč, hodnota
+# v podstatě kolekce tuples (key1, value1), (key2, value2), ...
+items = d.items()
+for key, value in items:
+    ...
+
+# ekvivalent
+for key, value in zip(d.keys(), d.values()):
+    ...
+
+# ekvivalent
+# dict.keys a dict.values nejsou indexovatelné, takže d.keys()[i] vyhodí chybu
+keys = list(d.keys())
+values = list(d.values())
+for i in range(len(keys)):
+    key = keys[i]
+    value = values[i]
+```
+
