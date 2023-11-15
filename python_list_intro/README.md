@@ -31,6 +31,7 @@ for i in range(len(my_list)):
 
 Iterování přes prvky listu (for each)
 ```python
+
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 for value in my_list:
@@ -136,8 +137,6 @@ def generate_random_array(n: int, min: int, max: int) -> list[int]:
 ```
 
 ## Histogram
-Historam zjednodušíme - pokud je počet výskytů 0, tak hodnotu do histogramu nezahrneme. 
-Histogram klasicky obsahuje sloupec i pro hodnoty co se v datech nevyskytují.
 ```python
 def get_values_counts(data: list[int]) -> tuple[list[int], list[int]]:
     """
@@ -263,7 +262,7 @@ plt.show()
 
 ## <code>list</code> vs <code>tuple</code>
 
-<code>list</code> lze modifikovat, <code>tuple</code> ne. <code>tuple</code> je n2kdy rychlej39
+<code>list</code> lze modifikovat, <code>tuple</code> ne. <code>tuple</code> je někdy rychlejší
 
 ```python
 t = tuple(1, 2, 3)
