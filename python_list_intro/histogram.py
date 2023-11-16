@@ -228,7 +228,6 @@ def print_bar_chart(labels: list[str], values: list[int]):
 
 
 if __name__ == '__main__':
-
     data = generate_random_array(10, -5, 5)
     values, counts = get_values_counts(data)
     labels = ints_to_strings(values)

@@ -1,27 +1,97 @@
-# Intro do Python listů (a funkcí)
+# Intro do Python listů (a funkcí (a for cyklů))
+
+## Cykly
+
+### For
+<code>for</code> cyklus v Pythonu funguje podobně jako ve Flowgorithmu.
+
+```python
+for iteracni_promenna in range(zacatek, konec, krok):
+    ...
+```
+<code>range</code> je způsob zápisu od jaké hodnoty začneme, jakou skončíme, a jaký bude krok po každé iteraci. Proč to tak je není úplně podstatné.
+
+Na rozdíl od Flowgorithmu ale cyklus projde hodnoty v intervalu <code>[zacatek, konec)</code>, tedy poslední hodnota, které nabyde <code>iteracni_promenna</code>, bude <code>konec-1</code>,
+
+```python
+# vypíše 0, 1, 2, ..., 9
+for i in range(0, 10, 1):
+    print(i)
+```
+
+Zápis lze zkrátit - pokud víme, že <code>zacatek = 0</code> a <code>krok = 1</code>, pak stačí napsat
+```python
+# vypíše 0, 1, 2, ..., 9
+for i in range(konec):
+    print(i)
+```
+### While
+
+<code>while</code> cyklus je identický jako ve Flowgorithmu
+```python
+# vypíše 0, 1, 2, ..., 9
+i = 0
+while i < 10:
+    print(i)
+    i = i + 1
+```
+
+
 
 ## Listy
+
+Co je list:
+* Něco jako pole z Flowgorithmu - ve Flowgorithmu se pole deklarovalo jako <code>Typ, Velikost</code> (<code>Integer Array[6]</code>)
+* List v Pythonu není omezen na jeden typ - lze míchat stringy, inty, floaty
+* Při deklaraci nespecifikujeme velikost. List je po vytvoření prázdný.
+* List rozšíříme tím, že tam něco přidáme - třeba int. List má vždy velikost podle toho, kolik prvků obsahuje. 
 
 ### Inicializace
 Obojí je možné
 
 ```python
+# prázdný list
 my_list = []
 
+# list s počátečními hodnotami
 my_list = [0, 1, 2, 3]
 
+# ekvivalent my_list = []
 my_list = list()
 ```
 
-<code>list()</code> lze použít i pro přetypování kolekce na list, např.
+### Inicializace na velikost *n*
 ```python
-my_list = list(range(10))
+# List co obsahuje n nul
+my_list = [0] * n
 
-print(my_list) 
-# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# Začneme s prázdným listem, ten ve for cyklu rozšíříme - každá iterace na konec listu přidá nulu 
+my_list = []
+for i in range(n):
+    # metoda append(prvek) přidá na konec listu předaný prvek
+    my_list.append(0)
+
+# Taky list co obsahuje n nul
+my_list = [0 for i in range(n)]
 ```
 
-Iterování přes list pomocí indexu
+### Procházení listu
+
+K prvkům listu můžeme přistupovat stejně jako u pole - <code>my_list[index]</code>. Na indexu <code>0</code> je první prvek.
+```python
+my_list = [1, 2, 3]
+
+print(my_list[0])
+# vypíše 1
+
+my_list[1] = 4
+print(my_list[1])
+# vypíše 4
+```
+
+Klasicky list procházíme přes <code>for</code> cyklus. Pomocí <code>len(my_list)</code> zjistíme velikost listu.
+
+List můžeme projít pomocí iterační proměnné
 ```python
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -29,16 +99,17 @@ for i in range(len(my_list)):
     print(my_list[i])
 ```
 
-Iterování přes prvky listu (for each)
+Nebo pomocí for-each cyklu - proměnná <code>value</code> nabyde hodnot prvků listu.
 ```python
 
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+# vypíše 0, 1, 2, ..., 9
 for value in my_list:
     print(value)
 ```
 
-List comprehensions - vložením for cyklu do listu vygenerujeme hodnoty listu 
+*List comprehensions - vložením for cyklu do listu vygenerujeme hodnoty listu*
 ```python
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -48,15 +119,25 @@ print(my_list_times_two)
 # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
 
-Built-in operace pro listy - <code>min</code>, <code>max</code>
+Operace pro listy, které nám Python poskytuje - <code>min</code>, <code>max</code>, <code>sum</code>, <code>len</code>
 ```python
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+# najde největší prvek
 print(max(my_list))
 # 9
 
+# najde nejmenší prvek
 print(min(my_list))
 # 0
+
+# sečte prvky
+print(sum(my_list))
+# 45
+
+# zjistí počet prvků
+print(len(my_list))
+# 10
 ```
 
 ## Funkce
